@@ -1,0 +1,77 @@
+{
+  "Version": 1,
+  "Hash": "kFEizmFtnAs8YwMLjuV2t6elQ7ioxM/vqe9mmHIPN7I=",
+  "Source": "WebCrawler",
+  "BasePath": "_content/WebCrawler",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebCrawler/wwwroot",
+      "Source": "WebCrawler",
+      "ContentRoot": "/home/rurworten/projects/webCrawler/WebCrawler/wwwroot/",
+      "BasePath": "_content/WebCrawler",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/rurworten/projects/webCrawler/WebCrawler/wwwroot/index.html",
+      "SourceId": "WebCrawler",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/rurworten/projects/webCrawler/WebCrawler/wwwroot/",
+      "BasePath": "_content/WebCrawler",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    },
+    {
+      "Identity": "/home/rurworten/projects/webCrawler/WebCrawler/wwwroot/index.js",
+      "SourceId": "WebCrawler",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/rurworten/projects/webCrawler/WebCrawler/wwwroot/",
+      "BasePath": "_content/WebCrawler",
+      "RelativePath": "index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.js"
+    },
+    {
+      "Identity": "/home/rurworten/projects/webCrawler/WebCrawler/wwwroot/styles.css",
+      "SourceId": "WebCrawler",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/rurworten/projects/webCrawler/WebCrawler/wwwroot/",
+      "BasePath": "_content/WebCrawler",
+      "RelativePath": "styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/styles.css"
+    }
+  ]
+}

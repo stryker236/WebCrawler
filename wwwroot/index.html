@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8" />
+    <title>WebCrawler</title>
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #0f172a;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 32px;
+        }
+
+        h1 {
+            margin-bottom: 24px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            background: #020617;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.4);
+        }
+
+        label {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: 1px solid #1e293b;
+            background: #020617;
+            color: #e5e7eb;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+
+        .actions {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            padding: 10px 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        #updateBtn {
+            background: #38bdf8;
+            color: #020617;
+        }
+
+        #startCrawlButton {
+            background: #22c55e;
+            color: #020617;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 32px;
+            border-collapse: collapse;
+            background: #020617;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        th {
+            background: #020617;
+            color: #94a3b8;
+            font-size: 13px;
+            text-transform: uppercase;
+        }
+
+        tr:hover td {
+            background: #0f172a;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Web Crawler</h1>
+
+    <form id="crawlConfigForm">
+        <div>
+            <label>Start URLs</label>
+            <input id="startUrls" type="text" required />
+        </div>
+
+        <div>
+            <label>Keywords</label>
+            <input id="keywords" type="text" required />
+        </div>
+
+        <div>
+            <label>Max Depth</label>
+            <input id="maxDepth" type="number" min="0" />
+        </div>
+
+        <div>
+            <label>Max Child Links</label>
+            <input id="maxChildLinks" type="number" min="1" />
+        </div>
+
+        <div>
+            <label>Delay (minutes)</label>
+            <input id="delay" type="number" min="0" />
+        </div>
+
+        <div class="actions">
+            <button id="updateBtn" type="submit">Update Crawl</button>
+            <button id="startCrawlButton" type="button">Start Crawl</button>
+        </div>
+    </form>
+
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Crawl ID</th>
+                <th>Crawl URL ID</th>
+                <th>Count</th>
+                <th>Word</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>https://example.com</td>
+                <td>Running</td>
+                <td>2</td>
+                <td>2026-01-16 10:12</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>https://openai.com</td>
+                <td>Finished</td>
+                <td>3</td>
+                <td>2026-01-16 09:40</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
