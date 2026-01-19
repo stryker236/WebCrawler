@@ -42,3 +42,4 @@
 /home/rurworten/projects/webCrawler/WebCrawler/obj/Debug/net8.0/WebCrawler.csproj.AssemblyReference.cache
 /home/rurworten/projects/webCrawler/WebCrawler/obj/Debug/net8.0/WebCrawler.csproj.CopyComplete
 /home/rurworten/projects/webCrawler/WebCrawler/bin/Debug/net8.0/HtmlAgilityPack.dll
+/home/rurworten/projects/webCrawler/WebCrawler/obj/Debug/net8.0/WebCrawler.sourcelink.json

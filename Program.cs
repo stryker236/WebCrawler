@@ -153,12 +153,17 @@ app.MapGet("/crawl/wordCount/getAll", async (
     return wordCount;
 });
 
-// app.MapGet("/crawl/table", async (
-//     ICrawlRepo repo) =>
-// {
-//     var table = await repo.GetCrawlTableData();
-//     return table;
-// });
+app.MapGet("/crawl/results", async (
+    ICrawlRepo repo) =>
+{
+    return await repo.GetCrawlFullResults();
+});
+app.MapGet("/crawl/results/{id:long}", async (
+    long id,
+    ICrawlRepo repo) =>
+{
+    return await repo.GetCrawlFullResultsByID(id);
+});
 
 
 app.UseDefaultFiles();

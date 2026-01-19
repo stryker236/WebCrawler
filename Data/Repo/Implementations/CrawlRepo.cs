@@ -48,4 +48,35 @@ public class CrawlRepo : ICrawlRepo
             ")
             .ToListAsync<dynamic>();
     }
+
+    public async Task<IEnumerable<CrawlResultsTable>> GetCrawlFullResults()
+    {
+    return await _db.CrawlResultsTable.FromSqlRaw(@"
+        SELECT
+            cwr.Id        AS Id,
+            c.Id          AS CrawlId,
+            cu.Url        AS Url,
+            cwr.Word      AS Word,
+            cwr.Count     AS Count
+        FROM CrawlWordResults cwr
+        INNER JOIN CrawlUrls cu ON cu.Id = cwr.CrawlUrlId
+        INNER JOIN Crawls c ON c.Id = cwr.CrawlId
+    ").ToListAsync();
+    }
+
+    public async Task<IEnumerable<CrawlResultsTable>> GetCrawlFullResultsByID(long id)
+    {
+        return await _db.CrawlResultsTable.FromSqlRaw($@"
+            SELECT
+                cwr.Id        AS Id,
+                c.Id          AS CrawlId,
+                cu.Url        AS Url,
+                cwr.Word      AS Word,
+                cwr.Count     AS Count
+            FROM CrawlWordResults cwr
+            INNER JOIN CrawlUrls cu ON cu.Id = cwr.CrawlUrlId
+            INNER JOIN Crawls c ON c.Id = cwr.CrawlId
+            WHERE c.id = {id};
+        ").ToListAsync();
+    }
 }

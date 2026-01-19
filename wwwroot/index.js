@@ -19,7 +19,13 @@ startCrawlButton.addEventListener("click", async () => {
     console.log("Last Crawl ID:", id);
 
 
-    const wordsCountRes = await fetch("/crawl/wordCount/getAll");
+    // const wordsCountRes = await fetch("/crawl/results");
+    const wordsCountRes = await fetch(`/crawl/results/${id}`);
+
+    if (!wordsCountRes.ok) {
+        console.error("Failed to fetch crawl results:", wordsCountRes.statusText);
+        return;
+    }
     const wordsCount = await wordsCountRes.json();
     console.log("Words Count:", wordsCount);
 
@@ -30,9 +36,12 @@ startCrawlButton.addEventListener("click", async () => {
     for (const wordCount of wordsCount) {
         row = document.createElement("tr");
         row.innerHTML = `
-            <td>${wordCount.id}</td>
-            <td>${wordCount.crawlId}</td>
-            <td>${wordCount.crawlUrlId}</td>
+            <td>${wordCount.crawlID}</td>
+            <td>
+                <a href="${wordCount.url}" target="_blank">
+                    ${wordCount.url}
+                </a>
+            </td>
             <td>${wordCount.count}</td>
             <td>${wordCount.word}</td>
         `;
@@ -44,35 +53,6 @@ startCrawlButton.addEventListener("click", async () => {
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const startUrls = Array.from(document.querySelectorAll(".urlInput"))
-            .map(i => i.value.trim())
-            .filter(v => v.length > 0)
-            .join(",");
-
-        const keywords = Array.from(document.querySelectorAll(".keywordInput"))
-            .map(i => i.value.trim())
-            .filter(v => v.length > 0)
-            .join(",");
-
-        const data = {
-            startUrls,
-            keywords,
-            maxDepth: parseInt(document.getElementById("maxDepth").value),
-            maxChildLinks: parseInt(document.getElementById("maxChildLinks").value),
-            crawlPeriod: parseInt(document.getElementById("delay").value)
-        };
-
-        await fetch("/crawl/config", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-        });
-    });
-
 
     const data = {
         id: 1,
@@ -87,7 +67,14 @@ form.addEventListener("submit", async (e) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
-    });
+    })
+
+    if (res.ok) {
+        const text = await res.text();
+        console.log("Config saved:", text);
+    } else {
+        console.error("Failed to save config:", res.statusText);
+    }
 });
 
 async function main() {

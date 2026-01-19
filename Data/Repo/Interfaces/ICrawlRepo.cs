@@ -9,4 +9,8 @@ public interface ICrawlRepo
     Task<IEnumerable<Crawls>> GetAllCrawls();
     Task<Crawls?> GetCrawlById(long id);
     Task<Crawls?> GetMostRecentCrawl();
+
+    Task<IEnumerable<CrawlResultsTable>> GetCrawlFullResults();
+
+    Task<IEnumerable<CrawlResultsTable>> GetCrawlFullResultsByID(long id);
 }
